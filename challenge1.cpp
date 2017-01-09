@@ -34,6 +34,7 @@ class Solution {
 
 		Bond parseRow(string row)
 		{
+			// read a csv row and parse the data into Bond structure
 			stringstream buffer(row);
 			string s;
 			string bond, type;
@@ -42,7 +43,7 @@ class Solution {
 			while (getline(buffer, s, ','))
 				parser.emplace_back(s);
 			bond = parser[0], type = parser[1];
-			term = atof(parser[2].c_str());
+			term = atof(parser[2].c_str());  // extract double from string
 			yield = atof(parser[3].c_str());
 			return Bond{bond, type, term, yield};
 		}
@@ -51,7 +52,7 @@ class Solution {
 			vector<Result> res;
 			for (int i = 0; i < corporate.size(); i++)
 			{
-				double min_dis = DBL_MAX;
+				double min_dis = DBL_MAX; // record closest term
 				Bond benchmark;
 				for (int j = 0; j < government.size(); j++)
 				{

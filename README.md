@@ -4,7 +4,7 @@
 
 Git clone this project to your local repository. Use make command to compile the program.
 
-Solution1 is the solution for challenge1. Pass two parameters into the program. The first one is the path to the input file .csv, and the second one is the path to the output file also end with .csv
+Solution1 is the solution for challenge1. Pass two parameters into the program. The first one is the path to the input file end with .csv, and the second one is the path to the output file also end with .csv
 
 Solution2 is the solution for challenge2. Its input format is the same as Solution1.
 
@@ -15,10 +15,10 @@ Both solutions follow OOP design. All data structure, input, output and helper f
 
 For solution1, it stores each rows from input into two vectors by its type. The key idea is to find the closest term of government bond for each corporate bond. Time complexity O(nm).
 
-For solution2, it also stores rows from input into two vectors by its type. The key idea is to find the right range formed by two government bond for each corporate bond. I sort government bond first by its term and use binary search for each corporate bond to find the correct range. Sorting cost O(nlogn), finding range cost O(logn) for each corporate bond. After finding the correct range, use two endings G1, G2 to find the slop of this line. With simple math, we can get the vertical distance from corporate bond C to the line.
+For solution2, it also stores rows from input into two vectors by its type. The key idea is to find the right range formed by two government bond for each corporate bond. I sort government bond first by its term and use binary search for each corporate bond to find the correct range. Sorting cost O(nlogn), finding range cost O(logn) for each corporate bond. After finding the correct range, use two endings G1, G2 to find the slop of this line. With simple math, we can get the vertical distance from corporate bond C to the line. Overall time O(nlogn).
 
 ## How to test
 
 You might need to change testing script mode by typing chmod -x test1.sh test2.sh.
 
-Run test1.sh and test2.sh. Both scripts will run Solution and take sample_input.csv as input, generate output files and compare these two files by calling python scripts.
+Run test1.sh and test2.sh. Both scripts will run Solution and take sample_input.csv as input, generate output files and compare these two files with sample_output by calling python scripts. These sample_outputs are calculated by hand and correct.

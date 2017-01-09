@@ -65,23 +65,23 @@ class Solution {
 			// use lower_bound to find first point greater or equal to point C
 			auto it = lower_bound(government.begin(), government.end(), C.term, LessThan());
 			Point G2 = Point(it->term, it->yield);
-			it--;
+			it--; // find the last end point
 			Point G1 = Point(it->term, it->yield);
 			return make_pair(G1,G2);
 		}
 		
 		double findDistance(Point C, Point G1, Point G2)
 		{
-			double delta_term = C.term - G1.term;
+			double delta_term = C.term - G1.term; // x axis
 			double slop = (G2.yield - G1.yield) / (G2.term - G1.term);
-			double delta_yield = slop * delta_term;
-			Point B = Point(G1.term + delta_term, G1.yield + delta_yield);
-			return C.yield - B.yield;
+			double delta_yield = slop * delta_term; // y axis
+			Point B = Point(G1.term + delta_term, G1.yield + delta_yield); // B is the point in the line G1 - G2
+			return C.yield - B.yield; // vertical distance
 		}
 		
                 void solve(string file_name) {
                         vector<Result> res;
-			sort(government.begin(), government.end());
+			sort(government.begin(), government.end()); // sort in terms of term
 			
                         for (int i = 0; i < corporate.size(); i++)
                         {
